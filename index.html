@@ -555,7 +555,7 @@
             <div class="mrow"><span class="mtag">TOOLS</span> hex driver · snips · string or level · caulk gun · garden hose</div>
             <ol class="mdo">
               <li>Chalk a line on the sub-fascia falling about 1″ over the 28′ toward the rear; hang the gutter @ 24″ with the outlet at the rear corner.</li>
-              <li>Seal every seam and end cap. Fit the downspout to grade with a splash pad or extension pointing away from the footings.</li>
+              <li>Seal every seam and end cap. From the outlet, use two elbows to jog the downspout back to the rear post (the gutter sits 12″ outboard of the post line), strap it to the post @ 4′ o.c., then to grade with a splash pad or extension pointing away from the footings.</li>
               <li>Extend the existing garage downspout so it discharges onto or past the new roof.</li>
               <li>Brush preservative on every PT cut end. Then the hose test: flood the roof and watch the apron line and gutter.</li>
               <li>Book the final inspection.</li>
@@ -1229,7 +1229,9 @@ for(let i=0;i<10;i++){const a=i*2.8,b=Math.min(28,a+2.8);
   quad([[a,yT(-0.2)+0.22,-0.2],[b,yT(-0.2)+0.22,-0.2],[b,yT(13.4)+0.22,13.4],[a,yT(13.4)+0.22,13.4]],i%2?C.roofA:C.roofB,'croof');}
 box(-0.05,28.05,7.95,8.6,12.98,13.14,C.wood2);      // sub-fascia
 box(0,28,8.05,8.55,13.14,13.54,C.gutter,null,0.5);  // new gutter — tight under drip edge
-box(27.4,27.75,0,8.05,13.2,13.55,C.gutter,null,0.4); // DS @ rear corner
+box(27.45,27.7,7.7,8.05,13.25,13.5,C.gutter,null,0.4);   // DS outlet stub below gutter
+box(27.45,27.7,7.45,7.7,12.4,13.5,C.gutter,null,0.4);    // elbow jog back to the post
+box(27.45,27.7,0,7.45,12.28,12.53,C.gutter,null,0.4);    // DS strapped down the rear post
 /* 6'-0" scale figure under the carport */
 const P=[92,106,126];
 box(19.78,20.22,0,2.6,7.86,8.14,P);                   // legs
