@@ -242,7 +242,7 @@
           <h2>General Notes</h2>
           <ol>
             <li>Existing building per PSB signed drawings: 25′×28′ out-to-out, 12′-0″ eave, <strong>2:12 roof</strong>, ridge ±14′-1″. Steel columns at frame lines 1·2·3 (<strong>14′-0″ o.c.</strong>); one sidewall girt at 7′-6″; eave strut at 12′-0″; 26 ga PBR panels, Pearl Gray. O.H. door 16′×10′ centred in endwall line 1; 3′-4″ walkdoor in front sidewall near line 1.</li>
-            <li><em class="vrfy">Ledger bolts land at the three steel columns only</em> — panel skin, single girt and eave strut cannot carry roof load. The ledger is an LVL beam spanning 14′ column-to-column (Detail 4). The panel is ribbed (±1¼″ ribs @ 12″ o.c.): bolts go through the <em class="vrfy">flat pans only</em>, with rib-depth packer blocks behind the LVL so bolt torque bears on the column — never on the ribs.</li>
+            <li><em class="vrfy">Ledger bolts land at the three steel columns only</em> — panel skin, single girt and eave strut cannot carry roof load. The ledger is an LVL beam spanning 14′ column-to-column (Detail 4). The panel has <em class="vrfy">vertical ribs</em> (±1¼″ @ 12″ o.c.): a flat pan runs full-height over each column, so bolts go through the pan with a vertical rib-depth packer strip behind the LVL — bolt torque bears on the column, never on the ribs.</li>
             <li><em class="vrfy">Existing eave gutter remains</em> — the carport roof drops to clear it: ledger top at 11′-0″ leaves ±6″ of wall panel below the gutter for a surface-mounted apron flashing, stitch-screwed and sealed to the panel (Detail 4). Gutter overflow and roof slide land on the carport roof, which drains to the new 5″ fascia gutter, downspout at the rear corner. Extend/reroute the garage downspout to discharge onto or past the carport roof. Design for full snow <em class="vrfy">plus drift and slide</em> off the garage's 2:12 metal roof.</li>
             <li>Beam: (2)-ply 2×12 seated in notched 6×6 posts, (2) ½″Ø bolts per post; ply joints land on posts only, staggered (Detail 5). Fascia and gutter hang on the rafter tails, 12″ past the beam.</li>
             <li>PSB cover sheet requires added loads/alterations to be directed by a registered engineer — <em class="vrfy">have the column reactions (roughly 4–8 kip added per column) reviewed before building</em>. Fallback if declined: free-standing second post row tight to the wall, flashed to the panel — no load into the building.</li>
@@ -361,11 +361,11 @@
           <div class="msh"><span class="sn">7</span><span class="mst">Drill + bolt the ledger</span><span class="mtime">½ DAY</span></div>
           <div class="mfig" id="s7"></div>
           <div class="mbody">
-            <div class="mrow"><span class="mtag">PARTS</span> 2 LVL plies 1¾″×11⅞″ ×14′ · 12 ½″Ø through-bolts + plate washers + nuts · lamination screws · rib-depth packer blocks (rip ±1¼″ from PT stock, or steel pipe sleeves per engineer)</div>
+            <div class="mrow"><span class="mtag">PARTS</span> 2 LVL plies 1¾″×11⅞″ ×14′ · 12 ½″Ø through-bolts + plate washers + nuts · lamination screws · vertical rib-depth packer strips (rip ±1¼″ from PT stock, or steel pipe sleeves per engineer)</div>
             <div class="mrow"><span class="mtag">TOOLS</span> ½″ drill · auger bit (wood) · step or annular bit (steel) · ratchet + ¾″ socket · deburring tool</div>
             <ol class="mdo">
               <li>At each column, mark four bolt positions per the engineer's detail — two rows, at least 2″ from the LVL edges, centred on the column.</li>
-              <li>The panel is ribbed — land every bolt in a FLAT pan (ribs run 12″ o.c., so pans line up over the 8″ column) and fit a rib-depth packer block (±1¼″) between LVL and pan, so tightening bears on the column and never crushes a rib (Detail 4). Your engineer may spec steel pipe sleeves instead — even cleaner.</li>
+              <li>The panel ribs are VERTICAL @ 12″ o.c., so a flat pan runs full-height over each 8″ column — land the bolts in that pan and fit a vertical rib-depth packer strip (±1¼″ × ledger height) between LVL and pan, so tightening bears on the column and never crushes a rib (Detail 4). Your engineer may spec steel pipe sleeves instead — even cleaner.</li>
               <li>Drill the LVL first, then through panel + column flange from outside. Deburr the steel.</li>
               <li>Bolt with the plate washer inside the column flange. Snug — don't crush the wall panel.</li>
               <li>Hang the second ply the same way. Butt joints land at the CENTRE column only. Screw the plies together, two rows @ 12″, then final-torque all 12 bolts.</li>
@@ -594,7 +594,7 @@
       <tr><td class="n">4</td><td>ABU66Z standoff post base + anchor</td><td class="n">$40</td><td class="n">$160</td></tr>
       <tr><td class="n">8</td><td>½″Ø ×8″ HDG bolt + nut + washers (2 per post)</td><td class="n">$6</td><td class="n">$48</td></tr>
       <tr><td class="n">12</td><td>½″Ø through-bolt + plate washers (4 per steel column)</td><td class="n">$8</td><td class="n">$96</td></tr>
-      <tr><td class="n">12</td><td>rib-depth packer blocks (rip from PT offcut) or pipe sleeves</td><td class="n">—</td><td class="n">$15</td></tr>
+      <tr><td class="n">3</td><td>vertical rib-depth packer strips (rip from PT) or pipe sleeves</td><td class="n">—</td><td class="n">$15</td></tr>
       <tr><td class="n">1</td><td>SD hanger screws / structural fasteners, misc</td><td class="n">$90</td><td class="n">$90</td></tr>
       <tr class="grp"><td colspan="4">FOOTINGS</td></tr>
       <tr><td class="n">4</td><td>16″Ø form tube ×4′-0″</td><td class="n">$55</td><td class="n">$220</td></tr>
@@ -816,17 +816,15 @@ const d=new Dwg('v-detail',-20,-8,38,34,6.6);
 d.rect(-8.75,0,8,30,'lx-fill'); d.rect(-8.75,0,8,30,'lx-thin');
 d.txt(-4.75,31.2,'EXIST. STEEL COLUMN','td');
 d.txt(-4.75,-2.2,'(LINES 1 · 2 · 3 ONLY)','td');
-// ribbed wall panel: pans tight to column, ribs project 1¼" @ 12" o.c.
-const ribs=[[1.5,4.5],[13.5,16.5],[25.5,28.5]];
-const pan=[[0,0]];
-ribs.forEach(r=>{pan.push([0,r[0]],[1.25,r[0]+0.8],[1.25,r[1]-0.8],[0,r[1]]);});
-pan.push([0,30]);
-d.path(pan,'lx');
+// wall panel — VERTICAL ribs @ 12" o.c.: section cut at a flat pan (tight to column);
+// rib crowns appear beyond as a dashed line 1¼" proud
+d.line(0,0,0,30,'lx');
+d.line(1.25,0,1.25,30,'lx-thin hid');
 // existing gutter — remains above the carport roof joint
 d.rect(1.25,26.5,3,2.2,'lx-thin');
 d.leader(4.2,27.6,8,32.2,'EXIST. GUTTER — REMAINS','tl tl-ex');
-// rib-depth packer blocks in the flat pans, at the bolt rows
-[[8.6,11.4],[16.6,19.4]].forEach(b=>d.rect(0,b[0],1.25,b[1]-b[0],'ln-thin'));
+// vertical packer strip (rib depth × full ledger height) in the flat pan at the column
+d.rect(0,8,1.25,11.875,'ln-thin');
 // LVL ledger sits on the rib-crown plane
 d.rect(1.25,8,3.5,11.875,'ln-fill');
 // thru-bolts — through the FLAT pans only
@@ -844,10 +842,11 @@ d.path([[5.5,9.5],[10,10.0],[10,13.4]],'ln-thin');
 d.leader(3.2,18.6,6,29.6,'LVL LEDGER (2) 1¾×11⅞','tl tl-new');
 d.txt(15.7,27.9,'SPANS 14′-0″ COL-TO-COL','tl tl-new');
 d.leader(6.4,18,11,21.6,'½″Ø THRU-BOLTS + PLATE WASHERS','tl tl-new');
-d.leader(0.6,10.5,8,6.9,'RIB-DEPTH PACKER (±1¼″) IN FLAT PAN','tl tl-new');
+d.leader(0.6,10.5,8,6.9,'VERT. PACKER STRIP (±1¼″) @ FLAT PAN','tl tl-new');
+d.leader(1.25,23.8,6.5,25.5,'RIB CROWNS BEYOND — VERT. RIBS @ 12″','tl tl-ex');
 d.leader(7.2,10.4,15,4.2,'SLOPED HANGER (LSSR)','tl tl-new');
 d.leader(24,rt(24)-4.6,28,1.6,'2×10 RAFTER — 2:12','tl tl-new','end');
-d.txt(9,-3.4,'BOLT THROUGH FLAT PANS ONLY — NEVER THROUGH RIB CROWNS','td');
+d.txt(9,-3.4,'RIBS ARE VERTICAL @ 12″ O.C. — BOLT THROUGH THE FLAT PAN AT EACH COLUMN','td');
 d.txt(9,-5.1,'ALT: STEEL PIPE SLEEVES CARRY THE TORQUE — ASK THE ENGINEER','td');
 d.txt(9,-6.8,'APRON SEALED TO PANEL BELOW GUTTER · ENGINEER TO VERIFY REACTIONS','td');
 }
@@ -1120,14 +1119,14 @@ const C={wall:[217,220,221],gable:[209,213,215],roofA:[201,206,210],roofB:[189,1
   ridge:[240,242,243],door:[236,238,238],doorLn:[203,206,207],walk:[226,228,228],
   wood:[141,109,75],wood2:[119,90,61],gutter:[248,249,249],
   grass:[147,157,127],drive:[181,177,166],pad:[191,187,176]};
-function quad(p,c,tag){Q.push({p,c,tag});}
-function box(x0,x1,y0,y1,z0,z1,c,tag){
-  quad([[x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0]],c,tag);
-  quad([[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]],c,tag);
-  quad([[x0,y0,z0],[x0,y0,z1],[x0,y1,z1],[x0,y1,z0]],c,tag);
-  quad([[x1,y0,z0],[x1,y0,z1],[x1,y1,z1],[x1,y1,z0]],c,tag);
-  quad([[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]],c,tag);
-  quad([[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1]],c,tag);
+function quad(p,c,tag,b){Q.push({p,c,tag,b});}
+function box(x0,x1,y0,y1,z0,z1,c,tag,b){
+  quad([[x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0]],c,tag,b);
+  quad([[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]],c,tag,b);
+  quad([[x0,y0,z0],[x0,y0,z1],[x0,y1,z1],[x0,y1,z0]],c,tag,b);
+  quad([[x1,y0,z0],[x1,y0,z1],[x1,y1,z1],[x1,y1,z0]],c,tag,b);
+  quad([[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]],c,tag,b);
+  quad([[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1]],c,tag,b);
 }
 /* ground passes (drawn first, unsorted) */
 G.push({p:[[-70,0,-90],[95,0,-90],[95,0,75],[-70,0,75]],c:C.grass});
@@ -1160,12 +1159,12 @@ for(let i=0;i<10;i++){const a=i*2.8,b=a+2.8,cc=i%2?C.roofA:C.roofB;
   quad([[a,11.95,0.35],[b,11.95,0.35],[b,RY,-12.5],[a,RY,-12.5]],cc);
   quad([[a,11.95,-25.35],[b,11.95,-25.35],[b,RY,-12.5],[a,RY,-12.5]],cc);}
 box(-0.1,28.1,14.02,14.24,-12.85,-12.15,C.ridge);
-box(0,28,11.5,11.95,0.03,0.42,C.gutter);            // existing gutter — stays
-box(0,28,11.5,11.95,-25.42,-25.03,C.gutter);
+box(0,28,11.5,11.95,0.03,0.42,C.gutter,null,0.9);   // existing gutter — stays
+box(0,28,11.5,11.95,-25.42,-25.03,C.gutter,null,0.9);
 quad([[-0.06,0,-4.5],[-0.06,0,-20.5],[-0.06,10,-20.5],[-0.06,10,-4.5]],C.door);
 for(let y=2;y<10;y+=2)quad([[-0.1,y,-4.5],[-0.1,y,-20.5],[-0.1,y+0.12,-20.5],[-0.1,y+0.12,-4.5]],C.doorLn);
 /* carport — z 0..13 off the front wall */
-box(0,28,10.0,11.0,0.05,0.35,C.wood2);              // LVL ledger (on packers off the ribs)
+box(0,28,10.0,11.0,0.05,0.35,C.wood2,null,0.9);     // LVL ledger (bias: draw over wall)
 [0.25,28/3,56/3,27.75].forEach(x=>box(x-0.23,x+0.23,0,7.28,11.77,12.23,C.wood));
 box(-0.02,28.02,7.28,8.22,11.875,12.125,C.wood2);   // (2)2x12 beam in notches
 const yT=z=>11-z/6;
@@ -1179,8 +1178,8 @@ for(let i=0;i<=21;i++){const x=Math.min(i*4/3,27.87),w=0.13;
 for(let i=0;i<10;i++){const a=i*2.8,b=Math.min(28,a+2.8);
   quad([[a,yT(-0.2)+0.22,-0.2],[b,yT(-0.2)+0.22,-0.2],[b,yT(13.4)+0.22,13.4],[a,yT(13.4)+0.22,13.4]],i%2?C.roofA:C.roofB,'croof');}
 box(-0.05,28.05,7.95,8.6,12.98,13.14,C.wood2);      // sub-fascia
-box(0,28,7.5,7.95,13.05,13.45,C.gutter);            // new gutter
-box(27.4,27.75,0,7.5,13.1,13.45,C.gutter);          // DS @ rear corner
+box(0,28,8.05,8.55,13.14,13.54,C.gutter,null,0.5);  // new gutter — tight under drip edge
+box(27.4,27.75,0,8.05,13.2,13.55,C.gutter,null,0.4); // DS @ rear corner
 /* camera */
 const cam={x:42,y:5.7,z:26,yaw:0,pitch:0};
 function lookAt(t){const dx=t[0]-cam.x,dz=t[2]-cam.z;cam.yaw=Math.atan2(dx,dz);
@@ -1228,7 +1227,7 @@ function render(){
       if(c.every(p=>p[2]<NEAR))continue;
       const cl=clipZ(c);if(cl.length<3)continue;
       let ds=0;for(const p of c)ds+=p[2];
-      list.push({cl,d:ds/c.length,q});}
+      list.push({cl,d:ds/c.length-(q.b||0),q});}
     if(sort)list.sort((a,b)=>b.d-a.d);
     for(const it of list){
       const col=shade(it.q.c,it.q.p);
