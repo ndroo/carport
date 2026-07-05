@@ -140,6 +140,12 @@
   .wt-ui label{ font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:.08em;
     color:#dbe4ee; background:rgba(20,28,40,.72); border:1px solid rgba(219,228,238,.35);
     padding:4px 10px; display:inline-flex; gap:6px; align-items:center; cursor:pointer;}
+  .wt-hint{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:10px; background:rgba(10,16,24,.42); color:#fff;
+    font-family:ui-monospace,Menlo,monospace; font-size:13px; letter-spacing:.12em;
+    text-align:center; pointer-events:none; transition:opacity .5s; text-shadow:0 1px 4px rgba(0,0,0,.5);}
+  .wt-hint b{ font-size:19px; letter-spacing:.18em;}
+  .wt-hint .go{ font-size:13px; color:#ffd9c9; margin-top:6px;}
   .wt-pad{ position:absolute; bottom:14px; right:14px; display:none;
     grid-template-columns:repeat(3,46px); grid-auto-rows:46px; gap:4px;}
   .wt-pad button{ font-size:16px; background:rgba(20,28,40,.6); color:#dbe4ee;
@@ -175,7 +181,7 @@
     .view,.bom,.titleblock,.notes{ break-inside:avoid;}
     .view.full:has(.manual){ break-inside:auto;}
     .mstep,.solo{ break-inside:avoid;}
-    .wt-ui,.wt-pad{ display:none;}
+    .wt-ui,.wt-pad,.wt-hint{ display:none;}
   }
   @page{ size:12in 18in; margin:0.4in;}
 </style>
@@ -217,7 +223,7 @@
       <div class="vt"><span class="num">6</span>Roofing Plan <span class="scale">top-down · panels &amp; purlins</span></div>
       <div id="v-roof"></div>
     </div>
-    <div class="view full">
+    <div class="view full" id="walkthrough">
       <div class="vt"><span class="num">7</span>Walkthrough <span class="scale">drag to look · WASD / arrows to walk · R/F up-down · shift = run</span></div>
       <div class="wt">
         <canvas id="wtc"></canvas>
@@ -228,6 +234,14 @@
           <button data-v="door">WALKDOOR</button>
           <button data-v="bird">BIRD'S EYE</button>
           <label><input type="checkbox" id="wt-roof" checked> roof panels</label>
+        </div>
+        <div class="wt-hint" id="wt-hint">
+          <b>WALK AROUND THE MODEL</b>
+          <span>DRAG&nbsp;&nbsp;—&nbsp;&nbsp;look around</span>
+          <span>W A S D / ARROWS&nbsp;&nbsp;—&nbsp;&nbsp;walk</span>
+          <span>R / F&nbsp;&nbsp;—&nbsp;&nbsp;up · down&nbsp;&nbsp;&nbsp;&nbsp;SHIFT&nbsp;&nbsp;—&nbsp;&nbsp;run</span>
+          <span>preset views top-left · roof toggle to see framing</span>
+          <b class="go">CLICK / DRAG TO START</b>
         </div>
         <div class="wt-pad">
           <span></span><button data-k="w">▲</button><span></span>
@@ -1165,8 +1179,11 @@ quad([[-0.06,0,-4.5],[-0.06,0,-20.5],[-0.06,10,-20.5],[-0.06,10,-4.5]],C.door);
 for(let y=2;y<10;y+=2)quad([[-0.1,y,-4.5],[-0.1,y,-20.5],[-0.1,y+0.12,-20.5],[-0.1,y+0.12,-4.5]],C.doorLn);
 /* carport — z 0..13 off the front wall */
 box(0,28,10.0,11.0,0.05,0.35,C.wood2,null,0.9);     // LVL ledger (bias: draw over wall)
-[0.25,28/3,56/3,27.75].forEach(x=>box(x-0.23,x+0.23,0,7.28,11.77,12.23,C.wood));
-box(-0.02,28.02,7.28,8.22,11.875,12.125,C.wood2);   // (2)2x12 beam in notches
+[0.25,28/3,56/3,27.75].forEach(x=>{
+  box(x-0.23,x+0.23,0,7.28,11.77,12.23,C.wood);            // post to the seat
+  box(x-0.23,x+0.23,7.28,8.22,11.77,11.98,C.wood);         // 2.5" shoulder beside the beam
+});
+box(-0.02,28.02,7.28,8.22,11.98,12.23,C.wood2);      // (2)2x12 beam seated in the notches
 const yT=z=>11-z/6;
 for(let i=0;i<=21;i++){const x=Math.min(i*4/3,27.87),w=0.13;
   quad([[x,yT(0),0],[x,yT(13),13],[x,yT(13)-0.77,13],[x,yT(0)-0.77,0]],C.wood);
@@ -1258,7 +1275,10 @@ addEventListener('keydown',e=>{if(!over)return;const k=e.key.toLowerCase();
   if(['w','a','s','d','r','f','shift','arrowup','arrowdown','arrowleft','arrowright'].includes(k)){keys[k]=1;e.preventDefault();}});
 addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=0;});
 let drag=null;
-cv.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId);});
+const hint=document.getElementById('wt-hint');
+const hideHint=()=>{if(hint)hint.style.opacity='0';};
+addEventListener('keydown',hideHint,{once:true});
+cv.addEventListener('pointerdown',e=>{hideHint();drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId);});
 cv.addEventListener('pointermove',e=>{if(!drag)return;
   cam.yaw-=(e.clientX-drag[0])*0.0042;
   cam.pitch-=(e.clientY-drag[1])*0.0042;
