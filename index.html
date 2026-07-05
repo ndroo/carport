@@ -381,7 +381,7 @@
             <ol class="mdo">
               <li>At each column, mark four bolt positions per the engineer's detail — two rows, at least 2″ from the LVL edges, centred on the column.</li>
               <li>The panel ribs are VERTICAL @ 12″ o.c., so a flat pan runs full-height over each 8″ column — land the bolts in that pan with a packer strip between LVL and pan, so tightening bears on the column and never crushes a rib (Detail 4, top-down view). Your engineer may spec steel pipe sleeves instead — even cleaner.</li>
-              <li><b>Packer spec:</b> 1¼″ thick (match the MEASURED rib height) × 6″ wide × 11⅞″ tall, one per column. Rip from LVL offcut (best) or laminate exterior ply ¾″+½″; PT works but pre-drill it. <b>Never bare PT against the panel</b> — bed a strip of butyl tape / self-adhered membrane between packer and panel to stop galvanic corrosion and seal the bolt holes. Pre-drill ½″ holes and screw each packer to the back of the LVL at its column mark before lifting.</li>
+              <li><b>Packer construction (Detail 4, top-down):</b> laminate ¾″ + ½″ exterior plywood — glued and screwed — into a 1¼″ × 6″ × 11⅞″ strip (match the MEASURED rib height), one per column. Face the panel side with butyl tape / self-adhered membrane: it waterproofs the bolt penetrations and isolates the wood from the galvalume. Pre-drill ½″ holes and screw each packer to the back of the LVL at its column mark before lifting. (LVL offcut works instead of ply; never bare PT against the panel.)</li>
               <li>Drill the LVL first, then through panel + column flange from outside. Deburr the steel.</li>
               <li>Bolt with the plate washer inside the column flange. Snug — don't crush the wall panel.</li>
               <li>Hang the second ply the same way. Butt joints land at the CENTRE column only. Screw the plies together, two rows @ 12″, then final-torque all 12 bolts.</li>
@@ -610,7 +610,7 @@
       <tr><td class="n">4</td><td>ABU66Z standoff post base + anchor</td><td class="n">$40</td><td class="n">$160</td></tr>
       <tr><td class="n">8</td><td>½″Ø ×8″ HDG bolt + nut + washers (2 per post)</td><td class="n">$6</td><td class="n">$48</td></tr>
       <tr><td class="n">12</td><td>½″Ø through-bolt + plate washers (4 per steel column)</td><td class="n">$8</td><td class="n">$96</td></tr>
-      <tr><td class="n">3</td><td>packer strips 1¼″×6″×11⅞″ (LVL offcut / ext. ply) + butyl isolation strip</td><td class="n">—</td><td class="n">$15</td></tr>
+      <tr><td class="n">3</td><td>packer strips 1¼″×6″×11⅞″ — ¾″+½″ ext. ply laminated + butyl/membrane face</td><td class="n">—</td><td class="n">$15</td></tr>
       <tr><td class="n">1</td><td>SD hanger screws / structural fasteners, misc</td><td class="n">$90</td><td class="n">$90</td></tr>
       <tr class="grp"><td colspan="4">FOOTINGS</td></tr>
       <tr><td class="n">4</td><td>16″Ø form tube ×4′-0″</td><td class="n">$55</td><td class="n">$220</td></tr>
@@ -871,8 +871,10 @@ const d2=new Dwg('v-detail',-26,-9.5,30,12.5,7);
 d2.txt(-25,10.9,'TOP-DOWN — SECTION AT A LEDGER BOLT (RIBS IN TRUE PROFILE)','td','start');
 // LVL ledger runs along the rib-crown plane
 d2.rect(-22,-4.85,44,3.5,'ln-fill');
-// packer strip fills the pan gap over the column
-d2.rect(-4.5,-1.35,9,1.25,'ln-thin');
+// packer strip fills the pan gap over the column: ¾"+½" exterior ply, laminated
+d2.rect(-4.5,-1.35,9,0.75,'ln-thin');
+d2.rect(-4.5,-0.6,9,0.5,'ln-thin');
+[-2.5,2.5].forEach(q=>{d2.line(q-0.3,-1.15,q+0.3,-0.35,'ln-thin');d2.line(q-0.3,-0.35,q+0.3,-1.15,'ln-thin');});
 // panel: pans tight to the column flange, ribs project 1¼" outward every 12"
 {const prof=[[-22,0]];
  [-18,-6,6,18].forEach(c=>{prof.push([c-2,0],[c-1.2,-1.25],[c+1.2,-1.25],[c+2,0]);});
@@ -888,9 +890,11 @@ d2.rect(-1,-5.9,2,1.05,'ln-thin');
 // labels + dim
 d2.dimH(-18,-6,3.4,'12″',0);
 d2.leader(-6,-1.25,-14,-4.5,'RIB (12″ O.C.)','tl tl-ex','end');
-d2.line(-4.5,-0.06,4.5,-0.06,'ld');
-d2.leader(2,-0.7,13,2.6,'PACKER 1¼″ × 6″ × 11⅞″ (LVL/PLY RIP)','tl tl-new');
-d2.leader(-3.5,-0.06,-14,1.9,'BUTYL / MEMBRANE — ISOLATE FROM PANEL','tl tl-new','end');
+d2.line(-4.6,-0.06,4.6,-0.06,'ld'); d2.line(-4.6,-0.14,4.6,-0.14,'ld');
+d2.leader(2,-0.8,13,2.8,'PACKER: ¾″ + ½″ EXT. PLYWOOD','tl tl-new');
+d2.txt(20.5,1.35,'GLUED & SCREWED · 6″ × 11⅞″','tl tl-new');
+d2.leader(-3.5,-0.1,-14,2.2,'MEMBRANE FACE: BUTYL / SELF-ADHERED','tl tl-new','end');
+d2.txt(-20,0.5,'WATERPROOFS BOLTS + ISOLATES PANEL','tl tl-new');
 d2.leader(3,0.15,14,5.4,'PAN TIGHT TO FLANGE','tl tl-ex');
 d2.leader(0,-5.4,-8,-8.3,'BOLT THRU PAN + FLANGE','tl tl-new','end');
 d2.txt(11.5,-6.9,'(2)-PLY LVL LEDGER','tl tl-new');
