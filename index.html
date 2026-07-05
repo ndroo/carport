@@ -864,6 +864,33 @@ d.leader(24,rt(24)-4.6,28,1.6,'2×10 RAFTER — 2:12','tl tl-new','end');
 d.txt(9,-3.4,'RIBS ARE VERTICAL @ 12″ O.C. — BOLT THROUGH THE FLAT PAN AT EACH COLUMN','td');
 d.txt(9,-5.1,'ALT: STEEL PIPE SLEEVES CARRY THE TORQUE — ASK THE ENGINEER','td');
 d.txt(9,-6.8,'APRON SEALED TO PANEL BELOW GUTTER · ENGINEER TO VERIFY REACTIONS','td');
+
+/* top-down companion: horizontal section at a ledger bolt */
+const d2=new Dwg('v-detail',-26,-9.5,30,12.5,7);
+d2.txt(-25,10.9,'TOP-DOWN — SECTION AT A LEDGER BOLT (RIBS IN TRUE PROFILE)','td','start');
+// LVL ledger runs along the rib-crown plane
+d2.rect(-22,-4.85,44,3.5,'ln-fill');
+// packer strip fills the pan gap over the column
+d2.rect(-4.5,-1.35,9,1.25,'ln-thin');
+// panel: pans tight to the column flange, ribs project 1¼" outward every 12"
+{const prof=[[-22,0]];
+ [-18,-6,6,18].forEach(c=>{prof.push([c-2,0],[c-1.2,-1.25],[c+1.2,-1.25],[c+2,0]);});
+ prof.push([22,0]);
+ d2.path(prof,'lx');}
+// column behind
+d2.rect(-4,0.5,8,8,'lx-fill'); d2.rect(-4,0.5,8,8,'lx-thin');
+d2.txt(0,9.4,'EXIST. 8″ STEEL COLUMN','td');
+// bolt through pan + flange, plate washer inside
+d2.line(0,1.8,0,-5.9,'ln-thin');
+d2.rect(-1.5,0.9,3,0.8,'ln-thin');
+d2.rect(-1,-5.9,2,1.05,'ln-thin');
+// labels + dim
+d2.dimH(-18,-6,3.4,'12″',0);
+d2.leader(-6,-1.25,-14,-4.5,'RIB (12″ O.C.)','tl tl-ex','end');
+d2.leader(2,-0.7,13,2.6,'PACKER STRIP IN PAN','tl tl-new');
+d2.leader(3,0.15,14,5.4,'PAN TIGHT TO FLANGE','tl tl-ex');
+d2.leader(0,-5.4,-8,-8.3,'BOLT THRU PAN + FLANGE','tl tl-new','end');
+d2.txt(11.5,-6.9,'(2)-PLY LVL LEDGER','tl tl-new');
 }
 
 /* ---------- 5a · BEAM AT POST — cross-section (inches, NTS) ---------- */
