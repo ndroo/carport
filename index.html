@@ -452,7 +452,7 @@
               <li>Bolt snug, washers both sides.</li>
               <li>Screw-laminate the plies two rows @ 16″ between posts.</li>
               <li>String the beam end-to-end, pull it straight, then final torque. Remove the saddles; keep the temporary post braces.</li>
-              <li><b>Knee braces:</b> 2×6 at 45° from each post to the beam underside — both directions at the interior posts, inward-facing at the end posts (6 total). (4) SDS ¼″×3½″ screws each end. These are what stop the open post row racking sideways along the beam — crosswise, the rafters brace it back to the building.</li>
+              <li><b>Knee braces:</b> 2×6 at 45°, both ends cut at 45° to the member — so the top face sits LEVEL against the beam&#8217;s underside and the bottom face sits PLUMB against the post face (Detail 5, beam-face view). Compression bears wood-on-wood; the (4) SDS ¼″×3½″ screws per end, driven through the brace face, just pin it and take any tension. Both directions at the interior posts, inward-facing at the ends — 6 total. These stop the post row racking along the beam; crosswise, the rafters brace it back to the building.</li>
             </ol>
             <div class="mcheck"><b>CHECK</b> — Beam straight within ¼″ over 28′ · two torqued bolts per post.</div>
             <div class="mcode">OBC 9.23.3 — bolted wood connections. <a href="https://www.ontario.ca/laws/regulation/120332" target="_blank">O. Reg. 332/12</a></div>
@@ -844,7 +844,8 @@ px.forEach(x=>d.rect(x-PW/2,0.25,PW,POSTTOP-0.25,'ln'));
 px.forEach(x=>d.rect(x-PW/2-0.06,0,PW+0.12,0.25,'ln-thin'));
 d.rect(26.35,0.3,0.42,rBot(PROJ+OH)-0.75,'ln-thin');
 px.forEach((x,i)=>{const dirs=i===0?[1]:i===3?[-1]:[-1,1];
-  dirs.forEach(sg=>d.line(x+sg*PW/2,POSTTOP-2,x+sg*2,POSTTOP,'ln'));});
+  dirs.forEach(sg=>{const x0=x+sg*PW/2;
+    d.poly([[x0,4.9],[x0+sg*2.38,POSTTOP],[x0+sg*1.73,POSTTOP],[x0,5.55]],'ln');});});
 d.leader(px[1]+1.4,POSTTOP-0.8,px[1]+3.4,3.2,'2×6 KNEE BRACES @ 45°','tl tl-new');
 d.leader(GL-1.5,rBot(PROJ+OH)+RAFD/2,GL-1.1,13.4,'FASCIA ON RAFTER TAILS','tl tl-new','end');
 d.leader(4,rBot(PROJ+OH)-0.2,7,3.4,'5″ GUTTER (WHITE) — SLOPE TO DS','tl tl-new');
@@ -973,6 +974,10 @@ d.line(10.75,20,10.75,31.25,'ln');
 d.line(44.75,20,44.75,31.25,'ln-thin hid');
 // bolts
 [[10.75,23.5],[10.75,28],[44.75,23.5],[44.75,28]].forEach(p=>d.circ(p[0],p[1],3,'ln-thin'));
+d.poly([[13.5,11],[22.5,20],[14.72,20],[13.5,18.78]],'ln-thin');
+d.poly([[42,11],[33,20],[40.78,20],[42,18.78]],'ln-thin');
+d.txt(27.6,15.3,'2×6 KNEE BRACES — 45° CUTS BOTH ENDS','tl tl-new');
+d.txt(27.6,13.4,'TOP FACE LEVEL ON BEAM · BOTTOM FACE PLUMB ON POST · (4) SDS EA. END','td');
 d.leader(10.75,30.6,16,36.6,'PLY A JOINT — ON POST ¢','tl tl-new');
 d.leader(44.75,30.6,40.5,34.7,'PLY B JOINT (STAGGERED)','tl tl-new','end');
 
@@ -1286,11 +1291,13 @@ box(0,28,10.0,11.0,0.05,0.35,C.wood2,null,0.9);     // LVL ledger (bias: draw ov
 box(-0.02,28.02,7.28,8.22,11.98,12.105,C.wood);      // beam ply A (inner 2x12)
 box(-0.02,28.02,7.28,8.22,12.105,12.23,[131,101,69]); // beam ply B (outer 2x12) — seam shows 2 plies
 function knee(x,sg){
-  const x0=x+sg*0.23,x1=x+sg*2.0,z0=12.0,z1=12.125;
-  quad([[x0,5.28,z0],[x1,7.28,z0],[x1,7.0,z0],[x0,5.0,z0]],C.wood);
-  quad([[x0,5.28,z1],[x1,7.28,z1],[x1,7.0,z1],[x0,5.0,z1]],C.wood);
-  quad([[x0,5.28,z0],[x1,7.28,z0],[x1,7.28,z1],[x0,5.28,z1]],C.wood);
-  quad([[x0,5.0,z0],[x1,7.0,z0],[x1,7.0,z1],[x0,5.0,z1]],C.wood2);
+  const z0=12.0,z1=12.125,x0=x+sg*0.23;
+  const pa=[x0,4.9],pb=[x0,5.55],pc=[x0+sg*2.38,7.28],pd=[x0+sg*1.73,7.28];
+  const P=[pa,pc,pd,pb];
+  quad(P.map(q=>[q[0],q[1],z0]),C.wood);
+  quad(P.map(q=>[q[0],q[1],z1]),C.wood);
+  quad([[pa[0],pa[1],z0],[pc[0],pc[1],z0],[pc[0],pc[1],z1],[pa[0],pa[1],z1]],C.wood2);
+  quad([[pb[0],pb[1],z0],[pd[0],pd[1],z0],[pd[0],pd[1],z1],[pb[0],pb[1],z1]],C.wood);
 }
 [[0.25,[1]],[28/3,[-1,1]],[56/3,[-1,1]],[27.75,[-1]]].forEach(pp=>pp[1].forEach(sg=>knee(pp[0],sg)));
 const yT=z=>11-z/6;
