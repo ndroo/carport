@@ -11,5 +11,5 @@ existing 25' × 28' steel-frame garage (Power Steel Buildings job 010659, Halibu
 - 18-step one-person build manual with Ontario Building Code references
 - Cut list + priced parts list (~$4,845 CAD big-box budget)
 
-Permit via Dysart et al; the P.Eng letter for the ledger connection travels with
-the permit application (manual step 1).
+Designed to OBC Div. B Part 9 (O. Reg. 332/12) with site-specific loads from the
+signed PSB drawings; code sections cited throughout. Permit via Dysart et al.
