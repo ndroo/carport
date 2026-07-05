@@ -456,7 +456,7 @@
               <li>Bolt snug, washers both sides.</li>
               <li>Screw-laminate the plies two rows @ 16″ between posts.</li>
               <li>String the beam end-to-end, pull it straight, then final torque. Remove the saddles; keep the temporary post braces.</li>
-              <li><b>Knee braces (Detail 7):</b> the notch leaves the beam&#8217;s outer face FLUSH with the post&#8217;s outer face — so each 2×6 brace lies FLAT across both, at 45°, overlapping the post and the beam by ±8″ each. (4) SDS ¼″×3½″ screws per end, driven through the brace&#8217;s flat into the wood behind — the screws work in shear. Ends are cut at 45° so they sit plumb along the post and level along the beam. Both directions at interior posts, inward at the ends — 6 total. These stop the post row racking along the beam; crosswise, the rafters brace everything back to the building.</li>
+              <li><b>Knee braces (Detail 7):</b> the notch leaves the beam&#8217;s outer face FLUSH with the post&#8217;s outer face — so each 2×6 brace lies FLAT across both at 45° — slide it until its plumb end edge is FLUSH with the post&#8217;s outside edge and its level top edge is FLUSH with the top of the beam (the edges are your alignment jig — no measuring). (4) SDS ¼″×3½″ screws per end, driven through the brace&#8217;s flat into the wood behind — the screws work in shear. Ends are cut at 45° so they sit plumb along the post and level along the beam. Both directions at interior posts, inward at the ends — 6 total. These stop the post row racking along the beam; crosswise, the rafters brace everything back to the building.</li>
             </ol>
             <div class="mcheck"><b>CHECK</b> — Beam straight within ¼″ over 28′ · two torqued bolts per post.</div>
             <div class="mcode">OBC 9.23.3 — bolted wood connections. <a href="https://www.ontario.ca/laws/regulation/120332" target="_blank">O. Reg. 332/12</a></div>
@@ -550,7 +550,7 @@
               <li>Rake trim down both gable ends, over the panel edges.</li>
               <li>First, the backup layer: self-adhered membrane over the ledger&#8217;s top face, lapped 2″ up the wall panel — anything that ever gets behind the flashing sheds off this instead of soaking the LVL.</li>
               <li>Apron flashing: fit profile-matched foam closures in EVERY pan along the top-edge line, bedded in butyl both sides — the pans are the wall&#8217;s drainage channels and the closures force that water out over the flashing. Then bed the apron&#8217;s top edge and stitch-screw to the ribs @ 12″ o.c., at least 3″ below the gutter (which stays untouched).</li>
-              <li>Cap the apron&#8217;s top edge with a drip-cap Z trim, sealed along its top only — two-stage protection, so no caulk joint takes direct rain, splash or condensation running down the wall. Profile drawing in Detail 4: any metal-roofing supplier bends it to order, or fold your own from aluminum coil stock over a board edge.</li>
+              <li>Cap the apron&#8217;s top edge with a drip-cap Z trim, sealed along its top only — two-stage protection, so no caulk joint takes direct rain, splash or condensation running down the wall. The cap is a plain straight trim — its leg rides the rib crowns, foam closures fill each pan behind it, and the stitch screws land in the crowns only (both views in Detail 4). Any metal-roofing supplier bends it to order, or fold your own from aluminum coil stock over a board edge.</li>
               <li>The apron's lower leg laps the roof panels ≥4″, fastened on rib crowns, foam closures underneath.</li>
               <li>Pull the step-6 cleats and land flashing screws in those holes — or seal them.</li>
             </ol>
@@ -852,8 +852,8 @@ px.forEach(x=>d.rect(x-PW/2,0.25,PW,POSTTOP-0.25,'ln'));
 px.forEach(x=>d.rect(x-PW/2-0.06,0,PW+0.12,0.25,'ln-thin'));
 d.rect(26.35,0.3,0.42,rBot(PROJ+OH)-0.75,'ln-thin');
 px.forEach((x,i)=>{const dirs=i===0?[1]:i===3?[-1]:[-1,1];
-  dirs.forEach(sg=>{const x0=x+sg*0.05;
-    d.poly([[x0,5.0],[x0+sg*2.6,POSTTOP+0.34],[x0+sg*1.95,POSTTOP+0.34],[x0,5.65]],'ln');});});
+  dirs.forEach(sg=>{const x0=x-sg*PW/2;
+    d.poly([[x0,5.84],[x0+sg*2.38,BEAMTOP+BMD],[x0+sg*1.73,BEAMTOP+BMD],[x0,6.49]],'ln');});});
 d.leader(px[1]+1.4,POSTTOP-0.8,px[1]+3.4,3.2,'2×6 KNEE BRACES @ 45°','tl tl-new');
 d.leader(GL-1.5,rBot(PROJ+OH)+RAFD/2,GL-1.1,13.4,'FASCIA ON RAFTER TAILS','tl tl-new','end');
 d.leader(4,rBot(PROJ+OH)-0.2,7,3.4,'5″ GUTTER (WHITE) — SLOPE TO DS','tl tl-new');
@@ -956,6 +956,20 @@ d3.leader(0.42,0.2,5,-2.4,'APRON TOP EDGE — IN THE RAIN SHADOW','tl tl-new');
 d3.txt(13,-4.9,'BUY: ANY METAL-ROOFING SHOP BENDS THIS FROM THE PROFILE (±$18/10′)','td');
 d3.txt(13,-6.5,'MAKE: FOLD ALUM. COIL STOCK OVER A BOARD EDGE — KICK FOLD LAST','td');
 d3.txt(13,-8.1,'INSTALL @ STEP 17 — AFTER THE APRON, BEFORE TOOLING THE SEALANT','td');
+/* top-down: how the straight cap crosses the vertical ribs */
+const d4=new Dwg('v-detail',-26,-10,30,7.5,7);
+d4.txt(-25,6.4,'TOP-DOWN — DRIP CAP CROSSING THE VERTICAL RIBS','td','start');
+{const prof=[[-22,0]];
+ [-18,-6,6,18].forEach(c=>{prof.push([c-2,0],[c-1.2,-1.25],[c+1.2,-1.25],[c+2,0]);});
+ prof.push([22,0]);
+ d4.path(prof,'lx');}
+[[-16,-8],[-4,4],[8,16]].forEach(pn=>d4.rect(pn[0],-1.3,pn[1]-pn[0],1.2,'ln-thin'));
+d4.line(-22,-1.45,22,-1.45,'ln');
+[-18,-6,6,18].forEach(c=>d4.circ(c,-1.45,2.2,'ln-thin'));
+d4.leader(-10,-1.45,-19,-4.6,'CAP LEG IS STRAIGHT — RIDES THE CROWNS','tl tl-new');
+d4.leader(0,-0.7,8,-5.2,'FOAM CLOSURE FILLS EACH PAN BEHIND IT','tl tl-new');
+d4.leader(6,-1.45,13,2.9,'STITCH TO CROWNS ONLY','tl tl-new');
+d4.txt(0,-8.2,'THE PART IS PLAIN BRAKE-BENT TRIM — THE CLOSURES DO THE PROFILE-MATCHING, NOT THE METAL','td');
 d2.leader(3,0.15,14,5.4,'PAN TIGHT TO FLANGE','tl tl-ex');
 d2.leader(0,-5.4,-8,-8.3,'BOLT THRU PAN + FLANGE','tl tl-new','end');
 d2.txt(11.5,-6.9,'(2)-PLY LVL LEDGER','tl tl-new');
@@ -1252,12 +1266,12 @@ d.rect(46,0,5.5,30,'ln');
 d.rect(44,30,24,11.25,'ln');
 d.txt(56,35.5,'(2)-PLY 2×12 BEAM','td');
 d.txt(48.75,4,'6×6','td');
-d.poly([[47.5,14],[67.5,34],[59.7,34],[47.5,21.78]],'ln');
-[[49.2,17],[49.2,19.6],[50.9,18.9],[50.9,21.4],[61.2,31.2],[63.4,32.4],[62.2,30.6],[64.4,31.9]].forEach(q=>d.circ(q[0],q[1],1.8,'ln-thin'));
-d.leader(64,33.2,52,43.6,'LAPS ±8″ ONTO THE BEAM FACE','tl tl-new','end');
-d.leader(49,17.5,44,11.8,'LAPS ONTO THE POST FACE','tl tl-new','end');
-d.txt(59,20,'(4) SDS EA. END — IN SHEAR','tl tl-new');
-d.txt(52.6,13.4,'45°','td');
+d.poly([[46,20],[67.25,41.25],[59.47,41.25],[46,27.78]],'ln');
+[[48,22.5],[48,25],[50,24.3],[50,26.8],[60.6,37],[62.9,38.4],[61.6,35.4],[63.9,36.9]].forEach(q=>d.circ(q[0],q[1],1.8,'ln-thin'));
+d.leader(63,41.25,52,44.6,'LEVEL EDGE FLUSH WITH BEAM TOP','tl tl-new','end');
+d.leader(46,23.5,44,12.5,'PLUMB EDGE FLUSH WITH POST EDGE','tl tl-new','end');
+d.txt(58.5,16,'(4) SDS EA. END — IN SHEAR','tl tl-new');
+d.txt(50.4,16.8,'45°','td');
 d.txt(30,-9.4,'THE NOTCH MAKES BEAM + POST FACES FLUSH — THE BRACE LIES FLAT ACROSS BOTH','td');
 d.txt(30,-11.4,'INSTALL @ STEP 11 — AFTER THE BEAM IS BOLTED, BEFORE THE RAFTERS GO ON','td');
 d.txt(30,-13.4,'BOTH DIRECTIONS @ INTERIOR POSTS · INWARD @ END POSTS · 6 TOTAL','td');
@@ -1350,8 +1364,8 @@ box(0,28,10.0,11.0,0.05,0.35,C.wood2,null,0.9);     // LVL ledger (bias: draw ov
 box(-0.02,28.02,7.28,8.22,11.98,12.105,C.wood);      // beam ply A (inner 2x12)
 box(-0.02,28.02,7.28,8.22,12.105,12.23,[131,101,69]); // beam ply B (outer 2x12) — seam shows 2 plies
 function knee(x,sg){
-  const z0=12.23,z1=12.355,x0=x+sg*0.05;
-  const pa=[x0,5.0],pb=[x0,5.65],pc=[x0+sg*2.6,7.62],pd=[x0+sg*1.95,7.62];
+  const z0=12.23,z1=12.355,x0=x-sg*0.23;
+  const pa=[x0,5.84],pb=[x0,6.49],pc=[x0+sg*2.38,8.22],pd=[x0+sg*1.73,8.22];
   const P=[pa,pc,pd,pb];
   quad(P.map(q=>[q[0],q[1],z0]),C.wood);
   quad(P.map(q=>[q[0],q[1],z1]),C.wood);
