@@ -1,15 +1,15 @@
 # Carport — 25×28 Power Steel garage addition
 
-Concept drawing sheet (SK-1 rev G) for a 13' × 28' attached lean-to carport on the
+Owner's build set (SK-1 rev H) for a 13' × 28' attached lean-to carport on the
 existing 25' × 28' steel-frame garage (Power Steel Buildings job 010659, Haliburton ON).
 
-**Live sheet:** https://ndroo.github.io/carport/
+**Live sheet:** https://ndroo.github.io/carport/ · 3D: https://ndroo.github.io/carport/#walkthrough
 
 - Section, plan, elevation, roofing plan
-- Ledger-at-steel-column and beam-at-post details (ribbed-panel packer fix included)
+- Details: ledger at steel column (vertical-rib packer system), beam at post, packer strip
 - Interactive 3D walkthrough (drag to look, WASD to walk)
-- One-person build manual, 18 steps, with Ontario Building Code references
-- Priced parts list (rough big-box CAD budget)
+- 18-step one-person build manual with Ontario Building Code references
+- Cut list + priced parts list (~$4,845 CAD big-box budget)
 
-**Status: concept — not for construction.** Ledger reactions into the building
-require a P.Eng review per the PSB cover sheet; permit through Dysart et al.
+Permit via Dysart et al; the P.Eng letter for the ledger connection travels with
+the permit application (manual step 1).
