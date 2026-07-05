@@ -224,11 +224,15 @@
       <div id="v-packer"></div>
     </div>
     <div class="view">
-      <div class="vt"><span class="num">7</span>Roofing Plan <span class="scale">top-down · panels &amp; purlins</span></div>
+      <div class="vt"><span class="num">7</span>Knee Brace <span class="scale">not to scale · make 6 — two per 8′ 2×6</span></div>
+      <div id="v-knee"></div>
+    </div>
+    <div class="view">
+      <div class="vt"><span class="num">8</span>Roofing Plan <span class="scale">top-down · panels &amp; purlins</span></div>
       <div id="v-roof"></div>
     </div>
     <div class="view full" id="walkthrough">
-      <div class="vt"><span class="num">8</span>Walkthrough <span class="scale">drag to look · WASD / arrows to walk · R/F up-down · shift = run</span></div>
+      <div class="vt"><span class="num">9</span>Walkthrough <span class="scale">drag to look · WASD / arrows to walk · R/F up-down · shift = run</span></div>
       <div class="wt">
         <canvas id="wtc"></canvas>
         <div class="wt-ui">
@@ -255,7 +259,7 @@
     </div>
 
     <div class="view">
-      <div class="vt"><span class="num">9</span>Notes &amp; Design Data</div>
+      <div class="vt"><span class="num">10</span>Notes &amp; Design Data</div>
       <div class="notes" style="grid-template-columns:1fr">
         <div>
           <h2>General Notes</h2>
@@ -280,7 +284,7 @@
     </div>
 
     <div class="view full">
-      <div class="vt"><span class="num">10</span>Build Manual <span class="scale">one-person build · ±6 working days · OBC refs = O. Reg. 332/12 Div. B</span></div>
+      <div class="vt"><span class="num">11</span>Build Manual <span class="scale">one-person build · ±6 working days · OBC refs = O. Reg. 332/12 Div. B</span></div>
       <div class="manual">
         <div class="mstep">
           <div class="msh"><span class="sn">1</span><span class="mst">Engineer + permit</span><span class="mtime">1–2 WEEKS LEAD</span></div>
@@ -452,7 +456,7 @@
               <li>Bolt snug, washers both sides.</li>
               <li>Screw-laminate the plies two rows @ 16″ between posts.</li>
               <li>String the beam end-to-end, pull it straight, then final torque. Remove the saddles; keep the temporary post braces.</li>
-              <li><b>Knee braces:</b> 2×6 at 45°, both ends cut at 45° to the member — so the top face sits LEVEL against the beam&#8217;s underside and the bottom face sits PLUMB against the post face (Detail 5, beam-face view). Compression bears wood-on-wood; the (4) SDS ¼″×3½″ screws per end, driven through the brace face, just pin it and take any tension. Both directions at the interior posts, inward-facing at the ends — 6 total. These stop the post row racking along the beam; crosswise, the rafters brace it back to the building.</li>
+              <li><b>Knee braces:</b> 2×6 at 45°, both ends cut at 45° to the member — so the top face sits LEVEL against the beam&#8217;s underside and the bottom face sits PLUMB against the post face (Detail 7). Compression bears wood-on-wood; the (4) SDS ¼″×3½″ screws per end, driven through the brace face, just pin it and take any tension. Both directions at the interior posts, inward-facing at the ends — 6 total. These stop the post row racking along the beam; crosswise, the rafters brace it back to the building.</li>
             </ol>
             <div class="mcheck"><b>CHECK</b> — Beam straight within ¼″ over 28′ · two torqued bolts per post.</div>
             <div class="mcode">OBC 9.23.3 — bolted wood connections. <a href="https://www.ontario.ca/laws/regulation/120332" target="_blank">O. Reg. 332/12</a></div>
@@ -608,7 +612,7 @@
       <tr><td class="n">4</td><td>posts — 6×6 ×10′</td><td>at the laser mark (seat ≈ 7′-3″)</td><td>then notch 3″ × 11¼″, outer face (Detail 5)</td></tr>
       <tr><td class="n">2</td><td>beam ply long — 2×12 ×20′</td><td>18′-8″</td><td>one joint on post 2, the other layer&#8217;s on post 3</td></tr>
       <tr><td class="n">2</td><td>beam ply short — 2×12 ×10′</td><td>9′-4″</td><td>completes each layer to 28′-0″</td></tr>
-      <tr><td class="n">6</td><td>knee braces — 2×6 ×8′ PT</td><td>±2′-10″ point-to-point, 45° ends</td><td>both ways at interior posts, inward at the ends</td></tr>
+      <tr><td class="n">6</td><td>knee braces — 2×6 ×8′ PT</td><td>long edge 3′-4½″ — 45° both ends</td><td>2 per 8′ stick · cutting template in Detail 7</td></tr>
       <tr><td class="n">22</td><td>rafters — 2×10 ×14′</td><td>±13′-2″ along the slope</td><td>plumb cuts both ends @ 2:12 — copy the step-12 template</td></tr>
       <tr><td class="n">2</td><td>sub-fascia — 2×8 ×14′</td><td>14′-0″</td><td>splice lands on a rafter tail</td></tr>
       <tr><td class="n">14</td><td>purlins — 2×4 ×14′</td><td>14′-0″</td><td>butt joints on rafter centres, staggered row to row</td></tr>
@@ -1214,6 +1218,32 @@ d.txt(21,1.1,'3 · BUTYL / MEMBRANE — TRIM FLUSH','tl','start');
 d.txt(21,-0.2,'4 · SCREW TO LVL BACK @ COLUMN MARK','tl','start');
 d.txt(21,-2.2,'THICKNESS = MEASURED RIB HEIGHT — PLANE TO FIT','td','start');
 d.txt(21,-3.6,'NEVER BARE PT AGAINST THE PANEL','td','start');
+}
+
+/* ---------- 7 · KNEE BRACE (inches, NTS) ---------- */
+{
+const d=new Dwg('v-knee',-4,-15,68,46,5);
+// FLAT CUTTING TEMPLATE — trapezoid: both 45s angle inward
+d.poly([[0,0],[40.4,0],[34.9,5.5],[5.5,5.5]],'ln');
+[[3.5,2.2],[6.5,3.3],[33.9,2.2],[36.9,3.3]].forEach(q=>d.circ(q[0],q[1],2.2,'ln-thin'));
+d.dimH(0,40.4,-2.6,'3′-4½″ LONG EDGE',0);
+d.dimH(5.5,34.9,8.2,'2′-5½″ SHORT EDGE',5.5);
+d.txt(2.2,-5.6,'45°','td'); d.txt(38.2,-5.6,'45°','td');
+d.line(0,0,2.2,-4.6,'ld'); d.line(40.4,0,38.2,-4.6,'ld');
+d.txt(20,-8.9,'CUTTING TEMPLATE — 2×6 PT · BOTH ENDS 45° · 2 BRACES PER 8′ STICK','td');
+// INSTALLED — post + beam corner
+d.rect(46,0,5.5,30,'ln');
+d.rect(44,30,24,11.25,'ln');
+d.txt(56,35.5,'(2)-PLY 2×12 BEAM','td');
+d.txt(48.75,4,'6×6','td');
+d.poly([[51.5,16],[65.5,30],[57.7,30],[51.5,23.78]],'ln');
+[[53.5,19.2],[53.5,21.8],[55.6,21.2],[55.6,23.8],[59.8,26.4],[61.8,28.2],[60.8,24.9],[62.8,26.9]].forEach(q=>d.circ(q[0],q[1],1.8,'ln-thin'));
+d.leader(61.6,30,52,43.6,'LEVEL FACE 7¾″ — BEARS ON BEAM','tl tl-new','end');
+d.leader(51.5,19.9,44,11.8,'PLUMB FACE 7¾″ — BEARS ON POST','tl tl-new','end');
+d.txt(58,12.5,'(4) SDS ¼″×3½″ EA. END','tl tl-new');
+d.txt(55.6,16.8,'45°','td');
+d.txt(30,-11.4,'INSTALL @ STEP 11 — AFTER THE BEAM IS BOLTED, BEFORE THE RAFTERS GO ON','td');
+d.txt(30,-13.4,'BOTH DIRECTIONS @ INTERIOR POSTS · INWARD @ END POSTS · 6 TOTAL','td');
 }
 
 /* ---------- label collision pass: separate overlapping texts, re-fit viewBox ---------- */
