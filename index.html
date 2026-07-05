@@ -1169,7 +1169,7 @@ box(27.4,27.75,0,7.5,13.1,13.45,C.gutter);          // DS @ rear corner
 const cam={x:42,y:5.7,z:26,yaw:0,pitch:0};
 function lookAt(t){const dx=t[0]-cam.x,dz=t[2]-cam.z;cam.yaw=Math.atan2(dx,dz);
   cam.pitch=Math.atan2(t[1]-cam.y,Math.hypot(dx,dz));}
-const views={front:[[14,5.7,33],[14,8.5,0]],street:[[42,5.7,26],[14,9,0]],
+const views={front:[[-33,5.7,-12.5],[0,8.5,-12.5]],street:[[42,5.7,26],[14,9,0]],
   under:[[6.5,5.7,8],[20,10.5,1]],door:[[4.7,5.7,9.5],[4.7,4,0]],bird:[[47,34,33],[14,4,-6]]};
 function setView(v){const a=views[v];cam.x=a[0][0];cam.y=a[0][1];cam.z=a[0][2];lookAt(a[1]);}
 setView('front');
